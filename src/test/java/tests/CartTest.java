@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
+import static enums.TitleNaming.CART;
 import static org.testng.Assert.*;
 import static user.UserFactory.standardUser;
 
@@ -38,7 +39,7 @@ public class CartTest extends BaseTest {
         loginPage.login(standardUser());
         productsPage.addToCart(goodsName);
         productsPage.navigationPanel.goToCart();
-        assertEquals(yourCartPage.getTitle(), "Your Cart");
+        assertEquals(yourCartPage.getTitle(),CART.getDisplayName());
         yourCartPage.clickCheckout();
     }
 }
