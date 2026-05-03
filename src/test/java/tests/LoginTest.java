@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import user.User;
 import user.UserFactory;
 
+import static enums.TitleNaming.PRODUCTS;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static user.UserFactory.standardUser;
@@ -24,7 +25,7 @@ public class LoginTest extends BaseTest {
         loginPage.open();
         loginPage.login(standardUser());
 
-        assertEquals(productsPage.getTitle(), "Products");
+        assertEquals(productsPage.getTitle(),PRODUCTS.getDisplayName());
     }
 
     @Test(description = "Проверка некорректный логин с разными данными", dataProvider = "loginData", priority = 2)

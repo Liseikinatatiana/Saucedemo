@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
+import static enums.TitleNaming.CART;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static user.UserFactory.standardUser;
@@ -34,6 +35,6 @@ public class ProductsTest extends BaseTest {
         assertEquals(productsPage.navigationPanel.checkCounterValue(), "4");
         assertEquals(productsPage.navigationPanel.checkCounterColor(), "rgba(226, 35, 26, 1)");
         productsPage.navigationPanel.goToCart();
-        assertEquals(yourCartPage.getTitle(), "Your Cart");
+        assertEquals(yourCartPage.getTitle(), CART.getDisplayName());
     }
 }

@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.CheckoutOverviewPage;
 
+import static enums.TitleNaming.CHECKOUT;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 import static user.UserFactory.standardUser;
@@ -40,7 +41,7 @@ public class CheckoutTest extends BaseTest {
         addProductAndGoToCheckout();
         checkoutPage.fillCheckoutForm(firstName, lastname, postalCode);
         CheckoutOverviewPage overviewPage = checkoutPage.clickContinue();
-        assertEquals(overviewPage.getTitle(), "Checkout: Overview");
+        assertEquals(overviewPage.getTitle(), CHECKOUT.getDisplayName());
     }
 
     @Test(description = "Проверка валидации формы с некорректными данными", dataProvider = "invalidCheckoutData",priority = 3)
